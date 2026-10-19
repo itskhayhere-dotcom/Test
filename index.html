@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <title>Jabal Dreams | Project Desk</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 30px;
+      display: grid; place-items: center;
+      background: #101713; color: #f2f5f0;
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+    main { width: min(850px, 100%); }
+    .tag { color: #a9e4bd; letter-spacing: 3px; font-size: 12px; }
+    h1 { font-size: clamp(38px, 8vw, 64px); line-height: 1.1; }
+    p { color: #aab6ae; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    a {
+      display: block; padding: 24px; border: 1px solid #344239;
+      border-radius: 16px; background: #19231d;
+      text-decoration: none; color: #f2f5f0;
+    }
+    a:hover { border-color: #a9e4bd; }
+    a h2 { margin-top: 10px; }
+    a span { color: #a9e4bd; font-weight: 600; }
+    footer { margin-top: 30px; font-size: 12px; color: #aab6ae; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="tag">JABAL DREAMS · OMAN</div>
+    <h1>Project Desk</h1>
+    <p>Select the workspace you want to open.</p>
+
+    <section class="cards">
+      <a href="./jabal-dreams-project-desk.html">
+        <span>WORKSPACE 01</span>
+        <h2>Project Desk</h2>
+        <p>Enquiries, quotations, projects and reports.</p>
+        <span>Open Project Desk →</span>
+      </a>
+
+      <a href="./jabal-dreams-desk-oman.html">
+        <span>WORKSPACE 02</span>
+        <h2>Operations Desk</h2>
+        <p>Open the main Jabal Dreams desk.</p>
+        <span>Open Operations Desk →</span>
+      </a>
+    </section>
+
+    <footer>
+      Do not enter confidential client data until secure access
+      controls and data storage have been implemented.
+    </footer>
+  </main>
+</body>
+</html>
