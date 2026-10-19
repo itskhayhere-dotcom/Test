@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jabal Dreams · Project Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8ebe8;--sf:#fff;--ink:#14232b;--mut:#5d6b70;--ln:#d3d9d6;--tl:#1f6f6b;--am:#b87a0c;--rd:#b0432f;--side:#14232b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e171b;--sf:#172830;--ink:#e6eeec;--mut:#93a5a8;--ln:#27393f;--tl:#4fb3ad;--am:#e0a63a;--rd:#e27a66;--side:#091115}}
+:root[data-theme=dark]{--bg:#0e171b;--sf:#172830;--ink:#e6eeec;--mut:#93a5a8;--ln:#27393f;--tl:#4fb3ad;--am:#e0a63a;--rd:#e27a66;--side:#091115}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'Bricolage Grotesque',system-ui,-apple-system,Segoe UI,sans-serif}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:var(--side);color:#dbe6e4;padding:22px 14px;position:sticky;top:0;height:100vh}
+.brand{font-weight:800;font-size:20px;line-height:1.1;padding:0 10px 22px;color:#fff}.brand small{display:block;font-weight:400;font-size:12px;color:#8fa6a3;margin-top:4px}
+nav button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;padding:10px 12px;border-radius:8px;margin-bottom:4px;box-sizing:border-box}
+nav button:hover{background:#ffffff14}nav button.on{background:#fff;color:#14232b;font-weight:600}
+nav b{font-weight:600;font-size:12px;background:#ffffff22;border-radius:99px;padding:1px 9px}nav .on b{background:#14232b14}
+main{padding:28px 32px;max-width:1100px;width:100%}
+.top{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+h1{margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em}.sub{color:var(--mut);margin:2px 0 0}
+button{font:inherit;cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--tl);outline-offset:2px}
+.p,.g,.d{border-radius:8px;padding:8px 14px;border:1px solid var(--ink);font-weight:600}
+.p{background:var(--ink);color:var(--bg)}.g{background:transparent;color:var(--ink);border-color:var(--ln)}.d{background:transparent;color:var(--rd);border-color:var(--rd)}.t{background:var(--tl);color:#fff;border-color:var(--tl)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.mut{color:var(--mut);font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{flex:1}
+.tag{font-size:12px;font-weight:600;border-radius:6px;padding:2px 8px;background:color-mix(in srgb,var(--tl) 16%,transparent);color:var(--tl)}
+.tag.Events{background:color-mix(in srgb,var(--am) 18%,transparent);color:var(--am)}.tag.Interiors{background:color-mix(in srgb,var(--rd) 15%,transparent);color:var(--rd)}
+.val{font-size:20px;font-weight:800}
+.empty{border:1px dashed var(--ln);border-radius:10px;padding:40px;text-align:center;color:var(--mut)}
+table{width:100%;border-collapse:collapse;background:var(--sf);border:1px solid var(--ln);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--ln);font-size:14px}th{color:var(--mut);font-weight:600;font-size:13px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.k{cursor:pointer}tr.k:hover td{background:color-mix(in srgb,var(--tl) 7%,transparent)}
+.wrap{overflow-x:auto}
+.bar{height:8px;background:var(--ln);border-radius:9px;overflow:hidden;min-width:90px}.bar i{display:block;height:100%;background:var(--tl)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:12px 14px}.kpi span{font-size:13px;color:var(--mut)}.kpi div{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.pos{color:var(--tl)}.neg{color:var(--rd)}
+.tabs{display:flex;gap:6px;margin:18px 0 10px;flex-wrap:wrap}.tabs button{border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px;padding:7px 14px}.tabs .on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+label{display:block;font-size:13px;color:var(--mut);margin-bottom:10px}
+.add{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}.add input{flex:1;min-width:120px}
+#m{position:fixed;inset:0;background:#0009;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}#m[hidden]{display:none}
+.box{background:var(--sf);border-radius:12px;padding:22px;width:100%;max-width:460px;max-height:90vh;overflow:auto}.box h3{margin:0 0 14px;font-size:20px}.box .row{justify-content:flex-end;margin-top:6px}
+@media(max-width:800px){.app{grid-template-columns:1fr}aside{position:static;height:auto;padding:12px}.brand{padding-bottom:10px}nav{display:grid;grid-template-columns:1fr 1fr;gap:4px}main{padding:18px 14px}}
+</style></head>
+<body>
+<div class="app">
+<aside><div class="brand">Jabal Dreams<small>International LLC · Project Desk</small></div><nav id="nav"></nav></aside>
+<main id="main"></main>
+</div>
+<div id="m" hidden></div>
+<script>
+const DIVS=['Construction','Events','Interiors'];
+const QS=['Preparing quotation','Sent to client','Under negotiation','Revised quotation sent'];
+const LEDGERS={income:{t:'Income received',f:['Received from / note'],a:'Amount received'},purch:{t:'Purchases',f:['Supplier','Item'],a:'Amount'},labour:{t:'Outsourced labour',f:['Contractor','Scope of work'],a:'Amount'}};
+const TABS=[['enquiry','New enquiries'],['quote','Quotations'],['ongoing','Ongoing projects'],['cancelled','Cancelled projects']];
+const today=()=>new Date().toISOString().slice(0,10);
+const sum=a=>(a||[]).reduce((s,x)=>s+Number(x.amt||0),0);
+const fmt=n=>'AED '+Math.round(Number(n||0)).toLocaleString('en-US');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=s=>document.querySelector(s);
+const seed=()=>({seq:6,items:[
+{id:1,client:'Al Noor Developments',contact:'+971 50 123 4567',div:'Construction',loc:'Sharjah',desc:'G+2 villa construction, finishing included',value:2400000,stage:'enquiry',date:'2026-10-14'},
+{id:2,client:'Emirates Gala Committee',contact:'events@gala.example',div:'Events',loc:'Dubai Festival City',desc:'Annual dinner stage, lighting and floral set for 600 guests',value:310000,stage:'enquiry',date:'2026-10-16'},
+{id:3,client:'Marhaba Hotel',contact:'+971 55 765 4321',div:'Interiors',loc:'Ajman',desc:'Lobby and 12-room refurbishment',value:850000,stage:'quote',qstatus:'Sent to client',date:'2026-10-02'},
+{id:4,client:'Sahara Retail Group',contact:'procure@sahara.example',div:'Interiors',loc:'Abu Dhabi',desc:'Flagship store fit-out, 420 sqm',value:1250000,stage:'ongoing',progress:45,date:'2026-08-20',
+ income:[{d:'2026-08-28',a:'Advance 30%',amt:375000},{d:'2026-09-30',a:'Milestone 1',amt:250000}],
+ purch:[{d:'2026-09-02',a:'Gulf Timber',b:'Veneer panels',amt:142000},{d:'2026-09-15',a:'Lumina Trading',b:'Lighting fixtures',amt:96500}],
+ labour:[{d:'2026-09-10',a:'Rapid Gypsum Works',b:'Ceiling and partitions',amt:118000}]},
+{id:5,client:'Desert Bloom Weddings',contact:'+971 52 888 1000',div:'Events',loc:'Al Ain',desc:'Outdoor wedding set',value:180000,stage:'cancelled',reason:'Client chose another vendor',from:'Enquiry',date:'2026-09-25'}]});
+let S;try{S=JSON.parse(localStorage.getItem('jd-desk'))}catch(e){}if(!S||!S.items)S=seed();
+let view='enquiry',open=null,ltab='income';
+const save=()=>{try{localStorage.setItem('jd-desk',JSON.stringify(S))}catch(e){}};
+const by=st=>S.items.filter(i=>i.stage===st);
+const get=id=>S.items.find(i=>i.id==id);
+
+function modal(title,html,ok,cb){const m=$('#m');m.innerHTML=`<div class="box" role="dialog" aria-label="${esc(title)}"><h3>${title}</h3><form id="mf">${html}<div class="row"><button type="button" class="g" id="mc">Close</button><button class="p">${ok}</button></div></form></div>`;m.hidden=false;
+$('#mf').onsubmit=e=>{e.preventDefault();cb(Object.fromEntries(new FormData($('#mf'))));m.hidden=true;draw()};$('#mc').onclick=()=>m.hidden=true;const f=$('#mf input,#mf select,#mf textarea');f&&f.focus()}
+
+function draw(){save();
+$('#nav').innerHTML=TABS.map(([k,l])=>`<button data-a="nav" data-k="${k}" class="${view===k?'on':''}">${l}<b>${by(k).length}</b></button>`).join('');
+const M=$('#main');
+if(view==='ongoing'&&open&&get(open)){M.innerHTML=detail(get(open));return}
+open=null;
+const T={enquiry:['New enquiries','Fresh requests from clients. Move one forward to quote it, or cancel it.'],quote:['Quotations','Track where every quotation stands. Approve one to start the project.'],ongoing:['Ongoing projects','Approved projects with their income, purchases and outsourced labour.'],cancelled:['Cancelled projects','Enquiries and quotations that did not go ahead.']}[view];
+let h=`<div class="top"><div><h1>${T[0]}</h1><p class="sub">${T[1]}</p></div>${view==='enquiry'?'<button class="p" data-a="new">Add new enquiry</button>':''}</div>`;
+const L=by(view);
+if(!L.length)h+=`<div class="empty">${view==='enquiry'?'No open enquiries. Add the first one.':'Nothing here yet.'}</div>`;
+else if(view==='ongoing')h+=`<div class="wrap"><table><tr><th>Project</th><th>Division</th><th class="n">Contract value</th><th class="n">Received</th><th class="n">Costs</th><th>Progress</th></tr>${L.map(i=>`<tr class="k" data-a="open" data-id="${i.id}"><td><b>${esc(i.client)}</b><div class="mut">${esc(i.desc)}</div></td><td><span class="tag ${i.div}">${i.div}</span></td><td class="n">${fmt(i.value)}</td><td class="n">${fmt(sum(i.income))}</td><td class="n">${fmt(sum(i.purch)+sum(i.labour))}</td><td><div class="bar"><i style="width:${i.progress||0}%"></i></div><span class="mut">${i.progress||0}%</span></td></tr>`).join('')}</table></div>`;
+else h+=`<div class="grid">${L.map(card).join('')}</div>`;
+M.innerHTML=h}
+
+function card(i){const hd=`<div class="row"><span class="tag ${i.div}">${i.div}</span><span class="sp"></span><span class="mut">${i.date}</span></div><h3>${esc(i.client)}</h3><div>${esc(i.desc)}</div><div class="mut">${esc(i.loc)} · ${esc(i.contact)}</div>`;
+if(i.stage==='enquiry')return`<div class="card">${hd}<div class="val">${fmt(i.value)} <span class="mut">estimated</span></div><div class="row"><button class="t p" data-a="toquote" data-id="${i.id}">Move to quotation</button><button class="d" data-a="cancel" data-id="${i.id}">Cancel enquiry</button></div></div>`;
+if(i.stage==='quote')return`<div class="card">${hd}<label>Quotation status<select data-a="qs" data-id="${i.id}">${QS.map(s=>`<option ${s===i.qstatus?'selected':''}>${s}</option>`).join('')}</select></label><label>Quoted amount (AED)<input type="number" min="0" value="${i.value}" data-a="qv" data-id="${i.id}"></label><div class="row"><button class="t p" data-a="approve" data-id="${i.id}">Approve and start project</button><button class="d" data-a="cancel" data-id="${i.id}">Reject</button></div></div>`;
+return`<div class="card">${hd}<div class="mut">Quoted ${fmt(i.value)} · cancelled from ${i.from||'Enquiry'}</div><div><b>Reason:</b> ${esc(i.reason)}</div><div class="row"><button class="g" data-a="reopen" data-id="${i.id}">Reopen as enquiry</button></div></div>`}
+
+function detail(i){const inc=sum(i.income),cost=sum(i.purch)+sum(i.labour),L=LEDGERS[ltab],rows=i[ltab]||[];
+const kp=(a,b,c='')=>`<div class="kpi"><span>${a}</span><div class="${c}">${b}</div></div>`;
+return`<div class="top"><div><button class="g" data-a="back">Back to projects</button><h1 style="margin-top:12px">${esc(i.client)}</h1><p class="sub">${esc(i.desc)} · ${esc(i.loc)}</p></div><span class="tag ${i.div}">${i.div}</span></div>
+<div class="kpis">${kp('Contract value',fmt(i.value))}${kp('Income received',fmt(inc),'pos')}${kp('Balance to collect',fmt(i.value-inc))}${kp('Purchases',fmt(sum(i.purch)))}${kp('Outsourced labour',fmt(sum(i.labour)))}${kp('Projected profit',fmt(i.value-cost),i.value-cost<0?'neg':'pos')}</div>
+<label>Work completed: <b>${i.progress||0}%</b><input type="range" min="0" max="100" value="${i.progress||0}" data-a="prog" data-id="${i.id}"></label>
+<div class="tabs">${Object.entries(LEDGERS).map(([k,v])=>`<button class="${ltab===k?'on':''}" data-a="lt" data-k="${k}">${v.t} (${fmt(sum(i[k]))})</button>`).join('')}</div>
+${rows.length?`<div class="wrap"><table><tr><th>Date</th>${L.f.map(f=>`<th>${f}</th>`).join('')}<th class="n">${L.a}</th><th></th></tr>${rows.map((r,x)=>`<tr><td>${r.d}</td><td>${esc(r.a)}</td>${L.f.length>1?`<td>${esc(r.b)}</td>`:''}<td class="n">${fmt(r.amt)}</td><td class="n"><button class="g" data-a="del" data-id="${i.id}" data-x="${x}">Remove</button></td></tr>`).join('')}</table></div>`:'<div class="empty">No entries yet. Add the first one below.</div>'}
+<form class="add" id="af">${L.f.map((f,n)=>`<input name="f${n}" placeholder="${f}" required>`).join('')}<input name="amt" type="number" min="0" step="any" placeholder="${L.a} (AED)" required><button class="p">Add entry</button></form>`}
+
+document.addEventListener('submit',e=>{if(e.target.id!=='af')return;e.preventDefault();const i=get(open),fd=new FormData(e.target);
+(i[ltab]=i[ltab]||[]).push({d:today(),a:fd.get('f0'),b:fd.get('f1')||'',amt:+fd.get('amt')});draw()});
+document.addEventListener('change',e=>{const t=e.target,a=t.dataset.a;if(!a)return;const i=get(t.dataset.id);
+if(a==='qs'){i.qstatus=t.value;save()}if(a==='qv'){i.value=+t.value||0;save()}if(a==='prog'){i.progress=+t.value;draw()}});
+document.addEventListener('input',e=>{if(e.target.dataset.a==='prog'){e.target.previousSibling.nodeValue='Work completed: '}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||['SELECT','INPUT'].includes(b.tagName))return;const a=b.dataset.a,i=get(b.dataset.id);
+if(a==='nav'){view=b.dataset.k;open=null;draw()}
+else if(a==='open'){open=i.id;ltab='income';draw()}
+else if(a==='back'){open=null;draw()}
+else if(a==='lt'){ltab=b.dataset.k;draw()}
+else if(a==='del'){i[ltab].splice(+b.dataset.x,1);draw()}
+else if(a==='toquote'){i.stage='quote';i.qstatus=QS[0];draw()}
+else if(a==='approve'){if(confirm('Approve this quotation for '+i.client+' at '+fmt(i.value)+' and start the project?')){i.stage='ongoing';i.progress=0;i.income=i.income||[];i.purch=i.purch||[];i.labour=i.labour||[];view='ongoing';open=i.id;draw()}}
+else if(a==='cancel'){const from=i.stage==='quote'?'Quotation':'Enquiry';modal(i.stage==='quote'?'Reject quotation':'Cancel enquiry',`<label>Reason<textarea name="r" rows="3" required placeholder="For example: client went with another vendor"></textarea></label>`,'Move to cancelled',d=>{i.stage='cancelled';i.reason=d.r;i.from=from;view='cancelled'})}
+else if(a==='reopen'){i.stage='enquiry';i.reason='';view='enquiry';draw()}
+else if(a==='new'){modal('New enquiry',`<label>Client name<input name="client" required></label><label>Contact (phone or email)<input name="contact" required></label><label>Division<select name="div">${DIVS.map(d=>`<option>${d}</option>`).join('')}</select></label><label>Location<input name="loc" required></label><label>What does the client need?<textarea name="desc" rows="3" required></textarea></label><label>Estimated value (AED)<input name="value" type="number" min="0" value="0"></label>`,'Save enquiry',d=>{S.items.push({id:S.seq++,client:d.client,contact:d.contact,div:d.div,loc:d.loc,desc:d.desc,value:+d.value||0,stage:'enquiry',date:today()});view='enquiry'})}
+});
+draw();
+</script></body></html>
